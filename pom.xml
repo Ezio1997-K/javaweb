@@ -6,6 +6,7 @@
   <packaging>pom</packaging>
   <modules>
     <module>module_01_test</module>
+    <module>jdbc_learn</module>
   </modules>
   <version>1.0-SNAPSHOT</version>
   <name>JavaWebLearn Maven Webapp</name>
