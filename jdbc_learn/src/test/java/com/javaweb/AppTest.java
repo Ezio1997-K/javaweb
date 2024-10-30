@@ -20,10 +20,11 @@ public class AppTest extends TestCase {
 
     public void test1() throws Exception {
         //注册驱动
-        Class.forName("com.mysql.jdbc.Driver");
+        //Class.forName("com.mysql.jdbc.Driver");已过时
+
+        Class.forName("com.mysql.cj.jdbc.Driver");//新版驱动
         //获取链接
         String url = "jdbc:mysql://localhost:3306/stu?useSSL=false&serverTimezone=UTC";
-        ;
         String user = "root";
         String password = "abc123";
         Connection conn = DriverManager.getConnection(url, user, password);
