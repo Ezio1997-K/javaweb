@@ -12,7 +12,10 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.function.Consumer;
 
 /**
  * ClassName:Test
@@ -59,7 +62,14 @@ public class AppTest {
         //4.执行查询所有方法
         List<Brand> brands = brandMapper.selectAll();
         brands.forEach(System.out::println);
-        //5.释放资源
+        /* 5.释放资源 */
         sqlSession.close();
+    }
+
+    @Test
+    public void testYingyong(){
+        ArrayList<String> list = new ArrayList<>();
+        Collections.addAll(list, "aaa", "bbb", "ccc");
+        list.stream().map(String::toUpperCase).forEach(System.out::println);
     }
 }
