@@ -9,10 +9,10 @@
     <module>jdbc_learn</module>
     <module>module_mybatis_demo</module>
   </modules>
-  <!--<properties>
+  <properties>
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
-  </properties>-->
+  </properties>
   <version>1.0-SNAPSHOT</version>
   <name>JavaWebLearn Maven Webapp</name>
   <url>http://maven.apache.org</url>
