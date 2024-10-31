@@ -17,6 +17,8 @@
     </environments>
     <mappers>
         <!--加载sql映射文件-->
-        <mapper resource="com/learnmba/mapper/UserMapper.xml"/>
+        <!--<mapper resource="com/learnmba/mapper/UserMapper.xml"/>-->
+        <!--使用包扫描的方式引入sql映射文件-->
+        <package name="com.learnmba.mapper"/>
     </mappers>
 </configuration>
