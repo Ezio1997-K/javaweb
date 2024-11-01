@@ -89,4 +89,17 @@ public class AppTest {
             classLoader = classLoader.getParent();
         }
     }
+
+    @Test
+    public void testSelectById() throws IOException {
+        int id = 1;
+        //1.获取SqlSessionFactory
+        String resource = "mybatis-config.xml";
+        InputStream inputStream = Resources.getResourceAsStream(resource);
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        BrandMapper mapper = sqlSession.getMapper(BrandMapper.class);
+        Brand brand = mapper.selectByIdBrand(id);
+        System.out.println(brand);
+    }
 }

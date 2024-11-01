@@ -17,4 +17,8 @@
     <select id="selectAll" resultMap="brandResultMap" >
         select * from tb_brand;
     </select>
+
+    <select id="selectByIdBrand" resultMap="brandResultMap">
+        select * from tb_brand where id = #{id};
+    </select>
 </mapper>

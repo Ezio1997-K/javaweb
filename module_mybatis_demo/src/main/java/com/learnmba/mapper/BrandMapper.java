@@ -12,4 +12,5 @@ import java.util.List;
  */
 public interface BrandMapper {
     List<Brand> selectAll();
+    Brand selectByIdBrand(int id);
 }
