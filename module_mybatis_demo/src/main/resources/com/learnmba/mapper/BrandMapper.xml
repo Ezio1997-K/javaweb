@@ -6,6 +6,6 @@
 <mapper namespace="com.learnmba.mapper.BrandMapper">
 
     <select id="selectAll" resultType="brand">
-        select * from tb_brand;
+        select id,brand_name as brandName,company_name as CompanyName,ordered,description,status from tb_brand;
     </select>
 </mapper>
