@@ -75,4 +75,18 @@ public class AppTest {
         Collections.addAll(list, "aaa", "bbb", "ccc");
         list.stream().map(String::toUpperCase).forEach(System.out::println);
     }
+
+    @Test
+    public void testClass(){
+        ClassLoader classLoader = AppTest.class.getClassLoader();
+        while (classLoader!= null) {
+            if (classLoader instanceof URLClassLoader) {
+                URLClassLoader urlClassLoader = (URLClassLoader) classLoader;
+                System.out.println("ClassLoader: " + classLoader.getClass().getName());
+                System.out.println("Class Path Entries:");
+                Arrays.stream(urlClassLoader.getURLs()).forEach(url -> System.out.println(url.getFile()));
+            }
+            classLoader = classLoader.getParent();
+        }
+    }
 }
