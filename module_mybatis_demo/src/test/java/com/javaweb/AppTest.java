@@ -102,4 +102,16 @@ public class AppTest {
         Brand brand = mapper.selectByIdBrand(id);
         System.out.println(brand);
     }
+
+    @Test
+    public void testSelectUserById() throws IOException {
+        int id = 1;
+        String resource = "mybatis-config.xml";
+        InputStream resourceAsStream = Resources.getResourceAsStream(resource);
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        User user = mapper.selectUserById(id);
+        System.out.println(user);
+    }
 }
