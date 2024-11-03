@@ -27,6 +27,14 @@ import java.util.List;
  *
  */
 public class AppTest {
+    /*static {
+        i = 2;
+    }
+    private static int i = 1;*/
+    static {
+        i = 2;
+    }
+    private static int i = 1;
     @Test
     public void testMybatis() throws IOException {
         String resource = "mybatis-config.xml";
@@ -113,5 +121,9 @@ public class AppTest {
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
         User user = mapper.selectUserById(id);
         System.out.println(user);
+    }
+    @Test
+    public void testI(){
+        System.out.println(i);
     }
 }
