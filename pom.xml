@@ -8,6 +8,7 @@
     <module>module_01_test</module>
     <module>jdbc_learn</module>
     <module>module_mybatis_demo</module>
+      <module>module_web_01</module>
   </modules>
   <properties>
     <maven.compiler.source>11</maven.compiler.source>
