@@ -10,7 +10,13 @@
     <insert id="addFruit" useGeneratedKeys="true" keyProperty="fid">
         insert into t_fruit(fname, price, fcount, remark) VALUES (#{fname},#{price},#{fcount},#{remark});
     </insert>
+    <update id="updateFruit">
+        update t_fruit set fname=#{fname},price=#{price},fcount=#{fcount},remark=#{fcount} where fid = #{fid};
+    </update>
     <select id="getFruitList" resultType="com.fruitweb.pojo.Fruit">
         select fid,fname,price,fcount,remark from t_fruit;
+    </select>
+    <select id="getFruitByFid" resultType="fruit">
+        select fid,fname,price,fcount,remark from t_fruit where fid = #{fid};
     </select>
 </mapper>

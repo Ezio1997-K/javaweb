@@ -17,6 +17,8 @@ public interface FruitMapper {
     //新增库存
     boolean addFruit(Fruit fruit);
 
+    Fruit getFruitByFid(Integer fid);
+
     //修改库存
     boolean updateFruit(Fruit fruit);
 

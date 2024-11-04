@@ -22,8 +22,8 @@ import java.util.List;
  * Package:com.fruitweb.servlets
  * Description:
  */
-@WebServlet("/selectAll")
-public class SelectServlet extends HttpServlet {
+@WebServlet("/index")
+public class SelectServlet extends ViewBaseServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
@@ -40,6 +40,13 @@ public class SelectServlet extends HttpServlet {
         sqlSession.close();
         resourceAsStream.close();
         session.setAttribute("fruitList", fruitList);
+
+        //此处的视图名称是 index
+        //那么thymeleaf会将这个 逻辑视图名称 对应到 物理视图 名称上去
+        //逻辑视图名称 ：   index
+        //物理视图名称 ：   view-prefix + 逻辑视图名称 + view-suffix
+        //所以真实的视图名称是：      /       index       .html
+        super.processTemplate("index",req,resp);
     }
 }
 
