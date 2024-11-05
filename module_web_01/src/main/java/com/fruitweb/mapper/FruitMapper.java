@@ -21,6 +21,7 @@ public interface FruitMapper {
 
     //修改库存
     boolean updateFruit(Fruit fruit);
+    boolean delFruitById(int id);
 
     //根据名称查询特定库存
     Fruit getFruitByFname(String fname);

@@ -13,6 +13,9 @@
     <update id="updateFruit">
         update t_fruit set fname=#{fname},price=#{price},fcount=#{fcount},remark=#{fcount} where fid = #{fid};
     </update>
+    <delete id="delFruitById">
+        delete from t_fruit where fid = #{fid};
+    </delete>
     <select id="getFruitList" resultType="com.fruitweb.pojo.Fruit">
         select fid,fname,price,fcount,remark from t_fruit;
     </select>
