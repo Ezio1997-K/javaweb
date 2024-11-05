@@ -22,4 +22,11 @@
     <select id="getFruitByFid" resultType="fruit">
         select fid,fname,price,fcount,remark from t_fruit where fid = #{fid};
     </select>
+    <select id="getFruitListByPageNum" resultType="fruit">
+        <bind name="startIndex" value="((pageNum - 1) * 5)"/>
+        select * from t_fruit limit #{startIndex},5;
+    </select>
+    <select id="getFruitCount" resultType="java.lang.Integer">
+        select count(*) from t_fruit;
+    </select>
 </mapper>
