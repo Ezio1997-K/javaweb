@@ -2,7 +2,13 @@
 
 <beans>
     <!-- 这个bean标签的作用是 将来servletpath中涉及的名字对应的是fruit，那么就要FruitController这个类来处理 -->
-    <bean id="fruit" class="com.learnfruit.fruit.controllers.FruitController"/>
+    <bean id="fruit" class="com.learnfruit.fruit.controllers.FruitController">
+        <property name="fruitService" ref="fruitService"/>
+    </bean>
+    <bean id="fruitService" class="com.learnfruit.fruit.service.impl.FruitServiceImpl">
+        <property name="fruitDAO" ref="fruitDao"/>
+    </bean>
+    <bean id ="fruitDao" class="com.learnfruit.fruit.dao.impl.FruitDAOImpl"/>
 </beans>
 
 

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 public class FruitController {
-    private FruitService fruitService = new FruitServiceImpl();
+    private FruitService fruitService = null;
 
     private String update(Integer fid , String fname , Integer price , Integer fcount , String remark ){
         //3.执行更新
@@ -70,12 +70,9 @@ public class FruitController {
         List<Fruit> fruitList = fruitService.getFruitList(keyword , pageNo);
         session.setAttribute("fruitList",fruitList);
 
-        //总记录条数
-        int fruitCount = fruitService.getPageCount(keyword);
         //总页数
-        int pageCount = (fruitCount+5-1)/5 ;
+        int pageCount = fruitService.getPageCount(keyword);
         session.setAttribute("pageCount",pageCount);
-
         return "index" ;
     }
 }
