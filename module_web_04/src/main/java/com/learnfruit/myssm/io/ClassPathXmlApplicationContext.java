@@ -68,7 +68,7 @@ public class ClassPathXmlApplicationContext implements BeanFactory {
                             Object refObj = beanMap.get(propertyRef);
                             //2 把refObj设置到当前bean对应的实例的property属性中
                             Object beanObj = beanMap.get(beanId);//当前bean,beanMap存放的是对应的instance
-                            Class beanClazz = beanObj.getClass();//通过对象获取字节码文件
+                            Class beanClazz = beanObj.getClass();//通过对象获取字节码文件对象
                             Field propertyField = beanClazz.getDeclaredField(propertyName);
                             propertyField.setAccessible(true);
                             /*
