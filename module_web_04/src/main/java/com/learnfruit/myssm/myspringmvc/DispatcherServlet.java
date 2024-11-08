@@ -1,5 +1,6 @@
 package com.learnfruit.myssm.myspringmvc;
 
+import com.learnfruit.fruit.exceptions.DisPatcherServletException;
 import com.learnfruit.myssm.io.BeanFactory;
 import com.learnfruit.myssm.io.ClassPathXmlApplicationContext;
 import com.learnfruit.myssm.util.StringUtil;
@@ -21,6 +22,7 @@ import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
+import java.nio.file.DirectoryNotEmptyException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -115,12 +117,14 @@ public class DispatcherServlet extends ViewBaseServlet {
             */
         } catch (IllegalAccessException e) {
             e.printStackTrace();
+            throw new DirectoryNotEmptyException("中央控制器出问题了");
         } catch (InvocationTargetException e) {
             Throwable cause = e.getCause();
             if (cause != null) {
                 System.out.println("实际异常：" + cause);
             }
             e.printStackTrace();
+            throw new DisPatcherServletException("中央控制器出问题了");
         }
     }
 }

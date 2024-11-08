@@ -1,5 +1,6 @@
 package com.learnfruit.myssm.basedao;
 
+import com.learnfruit.fruit.exceptions.FruitDAOException;
 import com.learnfruit.myssm.util.ConnUtil;
 
 import java.lang.reflect.Field;
@@ -31,6 +32,7 @@ public abstract class BaseDAO<T> {
             entityClass = Class.forName(actualType.getTypeName());
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
+            throw new FruitDAOException("FruitDAOImpl类中获取T的Class对象失败");
         }
     }
 
@@ -87,10 +89,10 @@ public abstract class BaseDAO<T> {
             return count ;
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new FruitDAOException("执行更新失败");
         }finally {
             close(rs,psmt,conn);
         }
-        return 0;
     }
 
     //通过反射技术给obj对象的property属性赋propertyValue值
@@ -105,6 +107,7 @@ public abstract class BaseDAO<T> {
             }
         } catch (NoSuchFieldException | IllegalAccessException e) {
             e.printStackTrace();
+            throw new FruitDAOException("给属性赋值失败");
         }
     }
 
@@ -133,6 +136,7 @@ public abstract class BaseDAO<T> {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new FruitDAOException("执行复杂查询失败");
         } finally {
             close(rs,psmt,conn);
         }
@@ -166,10 +170,13 @@ public abstract class BaseDAO<T> {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new FruitDAOException("执行复杂查询失败");
         } catch (IllegalAccessException e) {
             e.printStackTrace();
+            throw new FruitDAOException("执行复杂查询失败");
         } catch (InstantiationException e) {
             e.printStackTrace();
+            throw new FruitDAOException("执行复杂查询失败");
         } finally {
             close(rs,psmt,conn);
         }
@@ -205,10 +212,13 @@ public abstract class BaseDAO<T> {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new FruitDAOException("执行复杂查询失败");
         } catch (IllegalAccessException e) {
             e.printStackTrace();
+            throw new FruitDAOException("执行复杂查询失败");
         } catch (InstantiationException e) {
             e.printStackTrace();
+            throw new FruitDAOException("执行复杂查询失败");
         } finally {
             close(rs,psmt,conn);
         }
