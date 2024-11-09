@@ -1,30 +1,19 @@
 package com.learnfruit.myssm.myspringmvc;
 
 import com.learnfruit.fruit.exceptions.DisPatcherServletException;
-import com.learnfruit.myssm.io.BeanFactory;
-import com.learnfruit.myssm.io.ClassPathXmlApplicationContext;
+import com.learnfruit.myssm.ioc.BeanFactory;
+import com.learnfruit.myssm.ioc.ClassPathXmlApplicationContext;
 import com.learnfruit.myssm.util.StringUtil;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
 import java.nio.file.DirectoryNotEmptyException;
-import java.util.HashMap;
-import java.util.Map;
 
 @WebServlet("*.do")
 public class DispatcherServlet extends ViewBaseServlet {
@@ -35,7 +24,13 @@ public class DispatcherServlet extends ViewBaseServlet {
 
     public void init() throws ServletException {
         super.init();
-        this.beanFactory = new ClassPathXmlApplicationContext();
+        //优化为从application作用域中获取
+        Object beanFactoryObj = this.getServletContext().getAttribute("beanFactory");
+        if (beanFactoryObj != null) {
+            beanFactory = (BeanFactory) beanFactoryObj;
+        }else {
+            throw new RuntimeException("IOC容器创建失败");
+        }
     }
 
     @Override

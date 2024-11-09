@@ -1,4 +1,4 @@
-package com.learnfruit.myssm.io;
+package com.learnfruit.myssm.ioc;
 
 /**
  * ClassName:BeanFactory

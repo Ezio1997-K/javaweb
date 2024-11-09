@@ -1,12 +1,12 @@
-package com.learnfruit.myssm.io;
+package com.learnfruit.myssm.ioc;
 
+import com.learnfruit.myssm.util.StringUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import javax.servlet.annotation.WebServlet;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -24,10 +24,18 @@ import java.util.Map;
  */
 public class ClassPathXmlApplicationContext implements BeanFactory {
     private Map<String, Object> beanMap = new HashMap<>();
+    private String path = "applicationContext.xml";
+    public ClassPathXmlApplicationContext(){
 
-    public ClassPathXmlApplicationContext() {
+        this("applicationContext.xml");
+    }
+
+    public ClassPathXmlApplicationContext(String path) {
+        if(StringUtil.isEmpty(path)){
+            throw new RuntimeException("没有给IOC容器指定配置文件。。。");
+        }
         try {
-            InputStream inputStream = getClass().getClassLoader().getResourceAsStream("applicationContext.xml");
+            InputStream inputStream = getClass().getClassLoader().getResourceAsStream(path);
             //1.创建DocumentBuilderFactory
             DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
             //2.创建DocumentBuilder对象
