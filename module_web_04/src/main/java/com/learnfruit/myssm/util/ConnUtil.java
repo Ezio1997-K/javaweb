@@ -47,7 +47,8 @@ public class ConnUtil {
         }
         if (!conn.isClosed()) {
             conn.close();
-            threadLocal.set(null);
+            //threadLocal.set(null);
+            threadLocal.remove();
         }
     }
 
