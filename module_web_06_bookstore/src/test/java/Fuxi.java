@@ -122,4 +122,10 @@ public class Fuxi {
         LocalDateTime localDateTime = LocalDateTime.from(accessor);
         System.out.println(localDateTime); //2022-12-04T21:05:42
     }
+    @Test
+    public void test5(){
+        LocalDateTime now = LocalDateTime.now();
+        System.out.println(now.getYear());
+        System.out.println(now);
+    }
 }
