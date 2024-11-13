@@ -1,5 +1,7 @@
 package com.bookstore.pojo;
 
+import java.util.List;
+
 public class User {
     //用户id，自增
     private Integer id;
@@ -13,6 +15,15 @@ public class User {
     private Integer role;
 
     private Cart cart;
+    private List<OrderBean> orderList ;     //1:N
+
+    public List<OrderBean> getOrderList() {
+        return orderList;
+    }
+
+    public void setOrderList(List<OrderBean> orderList) {
+        this.orderList = orderList;
+    }
 
     public User() {
     }

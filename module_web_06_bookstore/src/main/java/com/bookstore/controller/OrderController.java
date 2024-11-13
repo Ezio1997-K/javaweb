@@ -5,9 +5,11 @@ import com.bookstore.pojo.User;
 import com.bookstore.service.OrderService;
 
 import javax.servlet.http.HttpSession;
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -37,5 +39,17 @@ public class OrderController {
         orderBean.setOrderStatus(0);
         orderService.addOrderBean(orderBean);
         return "index";
+    }
+
+    //查看订单列表
+    public String getOrderList(HttpSession session) throws Exception {
+        User user =(User)session.getAttribute("currUser");
+
+        List<OrderBean> orderList = orderService.getOrderList(user);
+        user.setOrderList(orderList);
+
+        session.setAttribute("currUser",user);
+
+        return "order/order" ;
     }
 }

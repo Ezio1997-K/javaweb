@@ -16,8 +16,10 @@ public class OrderBean {
     private Double orderMoney ;
     // 订单状态 0：待付款 1：待发货 2：待收货 3：待评价 4：已完成 5：已取消
     private Integer orderStatus;
-    // 订单明细列表
 
+    private Integer totalBookCount ;
+
+    // 订单明细列表
     private List<OrderItem> orderItemList ;     //1:N
 
     public OrderBean(){}
@@ -79,5 +81,12 @@ public class OrderBean {
 
     public void setOrderItemList(List<OrderItem> orderItemList) {
         this.orderItemList = orderItemList;
+    }
+    public void setTotalBookCount(Integer totalBookCount) {
+        this.totalBookCount = totalBookCount;
+    }
+
+    public Integer getTotalBookCount() {
+        return totalBookCount;
     }
 }

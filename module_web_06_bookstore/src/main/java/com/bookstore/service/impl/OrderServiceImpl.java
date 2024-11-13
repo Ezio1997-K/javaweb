@@ -9,6 +9,8 @@ import com.bookstore.pojo.OrderItem;
 import com.bookstore.pojo.User;
 import com.bookstore.service.OrderService;
 
+import java.sql.SQLException;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -45,5 +47,17 @@ public class OrderServiceImpl implements OrderService {
             cartItemDAO.delCartItem(cartItem);
         }
 
+    }
+
+    @Override
+    public List<OrderBean> getOrderList(User user) throws Exception {
+        List<OrderBean> orderBeanList = orderDAO.getOrderList(user);
+
+        for (OrderBean orderBean: orderBeanList) {
+            Integer totalBookCount = orderDAO.getOrderTotalBookCount(orderBean);
+            orderBean.setTotalBookCount(totalBookCount);
+        }
+
+        return orderBeanList ;
     }
 }
