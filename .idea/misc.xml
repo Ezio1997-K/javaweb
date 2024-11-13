@@ -8,10 +8,14 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/module_web_03/pom.xml" />
-        <option value="$PROJECT_DIR$/module_web_04/pom.xml" />
         <option value="$PROJECT_DIR$/module_web_05_QQZone/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/module_dfdfd/pom.xml" />
+        <option value="$PROJECT_DIR$/test/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectResources">

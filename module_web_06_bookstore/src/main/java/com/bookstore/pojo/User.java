@@ -17,6 +17,13 @@ public class User {
     private Cart cart;
     private List<OrderBean> orderList ;     //1:N
 
+    public User(String uname, String pwd, String email, int role) {
+        this.uname = uname;
+        this.pwd = pwd;
+        this.email = email;
+        this.role = role;
+    }
+
     public List<OrderBean> getOrderList() {
         return orderList;
     }

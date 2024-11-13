@@ -1,9 +1,9 @@
 package com.bookstore.dao.impl;
 
-import com.atguigu.myssm.basedao.BaseDAO;
 import com.bookstore.dao.CartItemDAO;
 import com.bookstore.pojo.CartItem;
 import com.bookstore.pojo.User;
+import com.myssm.basedao.BaseDAO;
 
 import java.util.List;
 

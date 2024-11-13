@@ -1,8 +1,8 @@
 package com.bookstore.dao.impl;
 
-import com.atguigu.myssm.basedao.BaseDAO;
 import com.bookstore.dao.OrderItemDAO;
 import com.bookstore.pojo.OrderItem;
+import com.myssm.basedao.BaseDAO;
 
 /**
  * ClassName:OrderItemDAOImpl

@@ -1,8 +1,8 @@
 package com.bookstore.dao.impl;
 
-import com.atguigu.myssm.basedao.BaseDAO;
 import com.bookstore.dao.BookDAO;
 import com.bookstore.pojo.Book;
+import com.myssm.basedao.BaseDAO;
 
 import java.util.List;
 

@@ -11,6 +11,7 @@
       <module>module_web_01</module>
       <module>module_web_02</module>
       <module>module_web_06_bookstore</module>
+      <module>module_dfdfd</module>
   </modules>
   <properties>
     <maven.compiler.source>11</maven.compiler.source>

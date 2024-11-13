@@ -12,7 +12,7 @@
 ]>
 
 <beans>
-    <bean id="page" class="com.atguigu.myssm.myspringmvc.PageController"/>
+    <bean id="page" class="com.myssm.myspringmvc.PageController"/>
 
     <!-- DAO -->
     <bean id="userDAO" class="com.bookstore.dao.impl.UserDAOImpl"/>
