@@ -15,11 +15,11 @@ import java.util.List;
  * Package:com.z_book.filters
  * Description:
  */
-@WebFilter(urlPatterns = {"*.do", "*.html"},
+/*@WebFilter(urlPatterns = {"*.do", "*.html"},
         initParams = {
                 @WebInitParam(name = "bai",
                         value = "/bookstore/page.do?operate=page&page=user/login,/bookstore/user.do?null")
-        })
+        })*/
 public class SessionFiler implements Filter {
     List<String> baiList;
 
@@ -61,6 +61,6 @@ public class SessionFiler implements Filter {
 
     @Override
     public void destroy() {
-        Filter.super.destroy();
+        //Filter.super.destroy();
     }
 }
