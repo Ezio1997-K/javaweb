@@ -34,6 +34,7 @@
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
+xi                <filtering>false</filtering>
             </resource>
         </resources>
         <plugins>
