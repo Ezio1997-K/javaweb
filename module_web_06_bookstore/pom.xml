@@ -28,13 +28,20 @@
             <artifactId>kaptcha</artifactId>
             <version>2.3.2</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.10.1</version>
+        </dependency>
+
     </dependencies>
     <build>
         <finalName>module_web_06_bookstore</finalName>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
-xi                <filtering>false</filtering>
+                <filtering>false</filtering>
             </resource>
         </resources>
         <plugins>

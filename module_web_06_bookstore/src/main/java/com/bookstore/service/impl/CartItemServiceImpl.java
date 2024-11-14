@@ -62,6 +62,7 @@ public class CartItemServiceImpl implements CartItemService {
         for(CartItem cartItem : cartItemList){
             Book book = bookService.getBook(cartItem.getBook().getId());
             cartItem.setBook(book);
+            cartItem.getXj();
         }
 
         return cartItemList;
